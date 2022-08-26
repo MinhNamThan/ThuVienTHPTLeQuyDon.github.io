@@ -63,4 +63,4 @@ set :stage, :production
 set :rails_env, :production
 set :deploy_to, "/deploy/apps/libruary_app"
 set :branch, :master
-server "103.166.185.90", user: "root", roles: %w(web app db), port: 80, ssh_options: {password: "8PE40o5Q9u5PHG1e"}
+server "103.166.185.90", user: "root", roles: %w(web app db), ssh_options: {password: "8PE40o5Q9u5PHG1e"}
