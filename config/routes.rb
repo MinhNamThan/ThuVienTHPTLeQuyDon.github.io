@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :books
   resources :local_books
   resources :password_resets, only: [:new, :create, :edit, :update]
-  
+
   namespace :admin do
     root to: "statistics#index"
     get "/admin", to: "statistics#index"
