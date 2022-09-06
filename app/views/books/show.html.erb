@@ -2,9 +2,11 @@
   <div class="book-information-page">
     <div class="book-information">
       <div class="top-content">
+      <%if @book.doc_file_pages.first%>
         <div class="image-wrapper">
           <%= image_tag @book.doc_file_pages.first, width: "100%" %>
         </div>
+        <% end %>
         <div class="book-content-wrapper">
           <div class="book-title">
             <%= @book.title %>

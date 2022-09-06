@@ -6,12 +6,12 @@
         <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
         <div class="divider"></div>
       </header>
-      <%= form_for :user do |f| %>
+      <%= form_for @user do |f| %>
         <%= f.hidden_field :id, value: current_user.id%>
         <%= f.label :name %>
         <%= f.text_field :name, class: "form-control", value: current_user.name %>
         <%= f.label :birthday %>
-        <%= f.text_field :birthday, class: "form-control", value: current_user.birthday %>
+        <%= f.date_field :birthday, class: "form-control", value: current_user.birthday %>
         <%= f.label :email %>
         <%= f.text_field :email, class: "form-control", value: current_user.email %>
         <%= f.submit "update", class: "submit-btn" %>
@@ -23,7 +23,7 @@
         <p>Để bảo mật tài khoản, vui lòng không chia sẻ mật khẩu cho người khác</p>
         <div class="divider"></div>
       </header>
-      <%= form_for :user do |f| %>
+      <%= form_for @user do |f| %>
         <%= f.hidden_field :id, value: current_user.id%>
         <%= f.label :password %>
         <%= f.password_field :password, class: "form-control" %>

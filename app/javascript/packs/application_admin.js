@@ -14,6 +14,3 @@ ActiveStorage.start();
 
 require("jquery");
 import "bootstrap";
-require("./pdf_to_image_channel");
-require("./progress_before_conversion_channel");
-require("./home");

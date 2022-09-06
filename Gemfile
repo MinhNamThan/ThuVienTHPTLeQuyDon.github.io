@@ -27,7 +27,8 @@ gem 'capistrano', '>=3.12.0'
 gem 'capistrano3-puma'
 gem 'capistrano-rails', require: false
 gem 'capistrano-bundler', require: false
-gem 'capistrano-rbenv'
+gem 'capistrano-rbenv', '~> 2.1'
+gem 'redis', '~> 4.7', '>= 4.7.1'
 
 group :development, :test do
   gem "pry", "~> 0.14.0"

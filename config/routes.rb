@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount ActionCable.server, at: '/cable'
+  default_url_options :host => "103.166.185.90"
   get 'password_resets/new'
   get 'password_resets/edit'
   get 'sessions/new'
@@ -18,7 +20,6 @@ Rails.application.routes.draw do
   get "/register", to: "users#new"
   post "/register", to: "users#create"
   delete '/logout', to: 'sessions#destroy'
-  post "users", to: "users#update"
   get "/search", to: "books#search"
   get "/links", to: "links#index"
   get "/search_local_book", to: "local_books#search"
@@ -27,9 +28,9 @@ Rails.application.routes.draw do
   resources :books
   resources :local_books
   resources :password_resets, only: [:new, :create, :edit, :update]
-  
+
   namespace :admin do
-    root to: "statistics#index"
+    root "statistics#index"
     get "/admin", to: "statistics#index"
     get "/books", to: "books#index"
     post "/books/:id", to: "books#update"

@@ -2,6 +2,8 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
+//= require_self
+//= require_tree .
 
 import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
@@ -11,10 +13,7 @@ import "channels";
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
-
+console.log("abd")
 require("jquery");
 import "bootstrap";
-require("./books");
-require("./pdf_to_image_channel");
-require("./progress_before_conversion_channel");
-require("./home");
+require("./books")

@@ -1,0 +1,28 @@
+<div class="admin-page">
+  <div> <%= render "admin/static_pages/sidebar" %> </div>
+  <div class="form-container">
+    <div class="form row">
+      <div class="add-book">
+        <p class="form-title">Thêm sách</p>
+        <%= form_for([:admin, @book], remote: true) do |f| %>
+          <%= render "admin/shared/error_messages", object: f.object %>
+          <%= f.label :title, "Tiêu đề" %>
+          <%= f.text_field :title, class: "form-control" %>
+          <%= f.label :author, "Tác giả" %>
+          <%= f.text_field :author, class: "form-control" %>
+          <%= f.label :describe, "Miêu tả" %>
+          <%= f.text_area :describe, class: "form-control" %>
+          <%= f.label :grade, "Khối" %>
+          <%= f.select :grade, options_for_select([["6", "6"],["7", "7"], ["8", "8"], ["9", "9"], ["Mọi lứa tuổi", "Mọi lứa tuổi"]]), class: "form-control"%>
+          <%= f.label :subject, "Môn học" %>
+          <%= collection_select(:book, :subject_id, @subjects, :id, :name) %>
+          <%= f.label :category, "Loại sách" %>
+          <%= collection_select(:book, :category_id, @categories, :id, :name) %>
+          <%= f.label :publish_on, "Ngày xuất bản" %>
+          <%= f.date_field :publish_on, class: "form-control"%>
+          <%= f.submit "Update", class: "submit-btn" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

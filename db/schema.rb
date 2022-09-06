@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_20_193953) do
+ActiveRecord::Schema.define(version: 2022_09_05_232535) do
 
   create_table "accesses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "num_access"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2022_08_20_193953) do
     t.string "content"
     t.string "author"
     t.string "grade"
-    t.string "describe"
+    t.text "describe"
     t.datetime "publish_on"
     t.integer "num_watch", default: 0
     t.bigint "subject_id", null: false

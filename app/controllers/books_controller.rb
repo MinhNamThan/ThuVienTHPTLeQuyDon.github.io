@@ -16,7 +16,7 @@ class BooksController < ApplicationController
         @page = [params.fetch(:page, 1).to_i, 1].max
         @totalPage = (Book.all.count * 1.0 / BOOKS_PER_PAGE).ceil
         @books = Book.all
-        if (@subject.length > 0) 
+        if (@subject.length > 0)
             @books = @books.where("subject_id in (?)", @subject)
         end
         if (@category.length > 0)

@@ -23,7 +23,7 @@
           <div class="col-1">
             <%= sort_link(@q, :num_watch,"Hot", default_order: :desc) %>
           </div>
-        </div>        
+        </div>
         <%= f.submit %>
       <% end %>
     </div>
@@ -32,7 +32,9 @@
         <%= link_to admin_book_path(book) do %>
           <div class="book-item-row">
             <div class="image-wrapper">
-              <%= image_tag book.doc_file_pages.first %>
+              <% if book.doc_file_pages.first %>
+                <%= image_tag book.doc_file_pages.first %>
+              <% end %>
             </div>
             <div class="detail-wrapper">
               <p class="title">

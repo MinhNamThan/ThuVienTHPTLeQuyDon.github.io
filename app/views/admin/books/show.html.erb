@@ -2,7 +2,9 @@
   <div> <%= render "admin/static_pages/sidebar" %> </div>
   <div class="book-detail-page">
     <div class="image-wrapper">
+    <% if @book.doc_file_pages.last %>
       <%= image_tag @book.doc_file_pages.first, width: "100%" %>
+      <% end %>
     </div>
     <div class="detail-section">
       <div class="book-detail">
@@ -23,6 +25,11 @@
             Miêu tả: <%= @book.describe %>
           </div>
         </div>
+      </div>
+      <div class="functional-btn">
+        <%= link_to edit_admin_book_path(@book) do %>
+          <span class="fa fa-edit"></span>
+        <% end %>
       </div>
       <div class="functional-btn">
         <%= link_to admin_book_path(@book), method: :delete, data: { confirm: "Bạn có chắc là muốn xóa không?" } do %>

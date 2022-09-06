@@ -6,11 +6,11 @@
         <p class="form-title">Tài khoản mới</p>
         <%= form_for [:admin, @user] do |f| %>
           <%= render "admin/shared/error_messages", object: f.object %>
-          <%= f.label :username, "Tài khoản" %>
+          <%= f.label :username, "Tài khoản (*)" %>
           <%= f.text_field :Tk, class: "form-control"%>
-          <%= f.label :password, "Mật khẩu" %>
+          <%= f.label :password, "Mật khẩu (*)" %>
           <%= f.password_field :password, class: "form-control" %>
-          <%= f.label :name, "Tên" %>
+          <%= f.label :name, "Tên (*)" %>
           <%= f.text_field :name, class: "form-control" %>
           <%= f.label :birthday, "Ngày sinh" %>
           <%= f.date_field :birthday, class: "form-control" %>

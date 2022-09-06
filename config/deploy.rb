@@ -1,14 +1,18 @@
 # config valid for current version and patch releases of Capistrano
+# require "bundler/capistrano"
+
 lock "~> 3.17.1"
 
-set :application, "libruary_app"
+set :application, "libruary_server"
 set :repo_url, "git@github.com:MinhNamThan/ThuVienTHPTLeQuyDon.github.io.git"
 
+set :rbenv_ruby, "2.7.1"
+
+set :default_env, { path: "~/.rbenv/shims:~/.rbenv/bin:$PATH" }
 set :pty, true
 set :linked_files, %w(config/database.yml config/application.yml)
-set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads)
+set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads public/packs node_modules storage)
 set :keep_releases, 5
-set :rbenv_path, '/usr/local/rbenv'
 set :puma_rackup, -> { File.join(current_path, "config.ru") }
 set :puma_state, -> { "#{shared_path}/tmp/pids/puma.state" }
 set :puma_pid, -> { "#{shared_path}/tmp/pids/puma.pid" }
@@ -23,3 +27,7 @@ set :puma_workers, 0
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true
 set :puma_preload_app, false
+set :assets_prefix, 'packs'
+set :assets_manifests, lambda { # Tell Capistrano-Rails how to find the Webpacker manifests
+  [release_path.join('public', fetch(:assets_prefix), 'manifest.json*')]
+}
