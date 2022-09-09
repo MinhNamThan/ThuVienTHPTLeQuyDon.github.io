@@ -21,7 +21,7 @@ class Admin::BooksController < Admin::BaseController
         if @book.save
           CreateImagesOfPdfPagesJob.set(wait: 2.seconds).perform_later(@book.id)
           format.js
-          format.html { redirect_to book_path(@book), notice: "book was successfully created." }
+          format.html { redirect_to root_path, notice: "book was successfully created." }
           format.json { render :show, status: :created, location: @book }
         else
           format.js
