@@ -34,8 +34,6 @@ class Admin::UsersController < Admin::BaseController
     end
 
     def create
-
-
       @user = User.new(user_params)
 
       if @user.save
@@ -61,5 +59,4 @@ class Admin::UsersController < Admin::BaseController
     def user_params
       params.require(:user).permit(:id, :Tk, :password, :name, :birthday, :email, :role, :class_user_id)
     end
-
   end

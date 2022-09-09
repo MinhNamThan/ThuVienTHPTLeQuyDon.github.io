@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   attr_accessor :reset_token
 
-  before_save :downcase_Tk
+  before_save :downcase_Tk, :check_email_unique
 
   validates :name, presence: true, length: { maximum: 40 }
   validates :Tk, presence: true, length: {minium: 10, maximum: 100}, uniqueness: true
@@ -47,6 +47,12 @@ class User < ApplicationRecord
   end
   def password_reset_expired?
     reset_sent_at < 1.hours.ago
+  end
+
+  def check_email_unique
+    return if email.blank?
+    user = User.find_by email: email
+    return false if user.present?
   end
 
   def downcase_Tk

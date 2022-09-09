@@ -29,7 +29,9 @@
           <a href="<%= "books/show?id=" + book.id.to_s %>">
             <div class="book-item-row">
               <div class="image-wrapper">
+              <% if book.doc_file_pages.first %>
                 <%= image_tag book.doc_file_pages.first, width: "100%" %>
+                <% end %>
                 <div class="see-detail">Xem chi tiết</div>
               </div>
               <div class="detail-wrapper">

@@ -42,7 +42,7 @@ const channel = consumer.subscriptions.create("PdfToImageChannel", {
       $("#converted-page-number").html(progressMessage);
       if(percentage == 100) {
         // this is to check of users has close the upload modal form or refreshed the page. This prevents page from redirect if ay of these occurs
-        window.location.replace("./books/" + responseContent.doc_id);
+        window.location.replace("/admin/books/" + responseContent.doc_id);
       }
     }
   }

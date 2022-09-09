@@ -27,6 +27,11 @@
         </div>
       </div>
       <div class="functional-btn">
+        <%= link_to edit_admin_book_path(@book) do %>
+          <span class="fa fa-edit"></span>
+        <% end %>
+      </div>
+      <div class="functional-btn">
         <%= link_to admin_book_path(@book), method: :delete, data: { confirm: "Bạn có chắc là muốn xóa không?" } do %>
           <span class="fa fa-trash"></span>
         <% end %>
