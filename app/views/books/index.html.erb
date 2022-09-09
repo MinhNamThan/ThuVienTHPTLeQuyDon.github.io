@@ -71,6 +71,7 @@
               <div class="book-list-container">
                 <div class="book-list">
                   <% @books.each do |book| %>
+                  <% if book.doc_file_pages.first %>
                     <a href="<%= "books/show?id=" + book.id.to_s %>">
                       <div class="book-item-row">
                         <div class="image-wrapper">
@@ -86,6 +87,7 @@
                         </div>
                       </div>
                     </a>
+                    <% end %>
                   <% end %>
                 </div>
                 <div class="pagination">

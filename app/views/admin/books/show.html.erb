@@ -2,7 +2,9 @@
   <div> <%= render "admin/static_pages/sidebar" %> </div>
   <div class="book-detail-page">
     <div class="image-wrapper">
+    <% if @book.doc_file_pages.last %>
       <%= image_tag @book.doc_file_pages.first, width: "100%" %>
+      <% end %>
     </div>
     <div class="detail-section">
       <div class="book-detail">

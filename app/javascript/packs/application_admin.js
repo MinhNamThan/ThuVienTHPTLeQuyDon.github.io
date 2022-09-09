@@ -14,4 +14,3 @@ ActiveStorage.start();
 
 require("jquery");
 import "bootstrap";
-require("./home");
