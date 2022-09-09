@@ -14,8 +14,6 @@
           <%= f.text_field :name, class: "form-control" %>
           <%= f.label :birthday, "Ngày sinh" %>
           <%= f.date_field :birthday, class: "form-control" %>
-          <%= f.label :email %>
-          <%= f.text_field :email, class: "form-control"%>
           <%= f.label :role, "Chức vụ" %>
           <%= f.select :role, User.roles.keys, class: "form-control"%>
           <%= f.label :id_lop, "Lớp" %>
