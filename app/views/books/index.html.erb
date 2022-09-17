@@ -3,7 +3,10 @@
     <div class="left-section">
       <div class="filter-bar" >
         <form class="filters-form"  method="GET" >
-          <button type="submit" class="sort-btn"><span class="fa fa-filter"></span></button>
+          <div class="filter-result">
+            <button type="submit" class="sort-btn"><span class="fa fa-filter"></span></button>
+            <p><%= @books.count %> Sách</p>
+          </div>
           <div>
             <div class="filter-header">
               Sắp xếp theo:
@@ -71,22 +74,22 @@
               <div class="book-list-container">
                 <div class="book-list">
                   <% @books.each do |book| %>
-                  <% if book.doc_file_pages.first %>
-                    <a href="<%= "books/show?id=" + book.id.to_s %>">
-                      <div class="book-item-row">
-                        <div class="image-wrapper">
-                          <%= image_tag book.doc_file_pages.first %>
-                          <div class="see-detail">Xem chi tiết</div>
+                    <% if book.doc_file_pages.first %>
+                      <a href="<%= "books/show?id=" + book.id.to_s %>">
+                        <div class="book-item-row">
+                          <div class="image-wrapper">
+                            <%= image_tag book.doc_file_pages.first %>
+                            <div class="see-detail">Xem chi tiết</div>
+                          </div>
+                          <div class="detail-wrapper">
+                            <p class="title">
+                              <%= book.title %>
+                              <span class="author">by <%= book.author %></span>
+                            </p>
+                            <p class="describe"><%= book.describe %></p>
+                          </div>
                         </div>
-                        <div class="detail-wrapper">
-                          <p class="title">
-                            <%= book.title %>
-                            <span class="author">by <%= book.author %></span>
-                          </p>
-                          <p class="describe"><%= book.describe %></p>
-                        </div>
-                      </div>
-                    </a>
+                      </a>
                     <% end %>
                   <% end %>
                 </div>
