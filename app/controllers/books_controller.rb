@@ -22,6 +22,7 @@ class BooksController < ApplicationController
         if (@category.length > 0)
             @books = @books.where("category_id in (?)", @category)
         end
+        @total_books_user = @books
         @books = @books.order(@sorts).offset((@page - 1) * BOOKS_PER_PAGE).limit(BOOKS_PER_PAGE)
     end
 
