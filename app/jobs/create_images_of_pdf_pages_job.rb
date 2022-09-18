@@ -14,13 +14,13 @@ class CreateImagesOfPdfPagesJob < ApplicationJob
     magick.pages.each_with_index do |page, index|
       file_name = "page_#{(index+1).to_s}"
       # set path for tempfile that you are about to create (using rails post ruby 2.5 approach. Pre 2.5 ruby uses make_tmpname; post 2.5 ruby uses create; I like rails post 2.5 version)
-      converted_file_path = File.join(Dir.tmpdir, "#{file_name}-#{Time.now.strftime("%Y%m%d")}-#{$$}-#{rand(0x100000000).to_s(36)}-.png")
+      converted_file_path = File.join(Dir.tmpdir, "#{file_name}-#{Time.now.strftime("%Y%m%d")}-#{$$}-#{rand(0x100000000).to_s(36)}-.jpg")
       # create png and save to tempfile path
       MiniMagick::Tool::Convert.new do |convert|
         # prep format
         convert.background "white"
         convert.flatten
-        convert.density 300
+        convert.density 150
         convert.quality 100
         # add page to be converted,./
         convert << page.path
@@ -36,7 +36,7 @@ class CreateImagesOfPdfPagesJob < ApplicationJob
 
       cable_broadcast("pdf_to_image_channel", broadcasting_content)
 
-      book.doc_file_pages.attach(io: File.open(converted_file_path), filename: file_name, content_type: "image/png")
+      book.doc_file_pages.attach(io: File.open(converted_file_path), filename: file_name, content_type: "image/jpg")
       # remove tempfile
       FileUtils.rm(converted_file_path)
     end
