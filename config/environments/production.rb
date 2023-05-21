@@ -44,8 +44,8 @@ Rails.application.configure do
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
-  config.action_cable.url = 'ws://103.166.185.90/cable' # ws:// is non-secure, wss:// is secure
-  config.action_cable.allowed_request_origins = [ 'http://103.166.185.90' ]
+  config.action_cable.url = 'ws://thuviensothcslequydon.edu.vn//cable' # ws:// is non-secure, wss:// is secure
+  config.action_cable.allowed_request_origins = [ 'http://thuviensothcslequydon.edu.vn/' ]
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 
