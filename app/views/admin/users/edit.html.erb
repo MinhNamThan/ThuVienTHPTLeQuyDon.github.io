@@ -17,7 +17,7 @@
           <%= f.label :email, "Email" %>
           <%= f.text_field :email, class: "form-control"%>
           <%= f.label :role, "Chức vụ" %>
-          <%= f.select :role, options_for_select([["Admin", "admin"],["Teacher", "teacher"], ["Student", "student"]]), class: "form-control"%>
+          <%= f.select :role, options_for_select([["Admin", "admin"],["Teacher", "teacher"], ["Student", "student"]], :selected => @user.role), class: "form-control"%>
           <%= f.label :id_lop, "Lớp" %>
           <%= collection_select(:user, :class_user_id, @class_users, :id, :name) %>
           <%= f.submit "Edit", class: "submit-btn" %>

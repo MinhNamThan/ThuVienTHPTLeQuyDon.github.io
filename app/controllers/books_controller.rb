@@ -9,8 +9,8 @@ class BooksController < ApplicationController
         else
             @sorts = "title"
         end
-        @subject_list = Subject.all
-        @category_list = Category.all
+        @subject_list = Subject.asc_name
+        @category_list = Category.asc_name
         @subject = params[:subject] ? params[:subject] : []
         @category = params[:category] ? params[:category] : []
         @page = [params.fetch(:page, 1).to_i, 1].max
