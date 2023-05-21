@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
-  def home; 
+  def home;
     @categories = Category.all.limit(4)
-    @subjects = Subject.all
+    @subjects = Subject.asc_name
     @books = Book.order(updated_at: :desc).limit(8)
   end
 
